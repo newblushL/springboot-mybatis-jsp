@@ -1,0 +1,24 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /sb
+
+#自定义配置
+ip: 125.220.98.27
+port: 9999
+content: "ip:${ip},port:${port}"
+
+devconfig:
+  ip: 192.168.1.8
+  port: 8888
+
+spring:
+  profiles:
+    active: dev
+  mvc:
+    view:
+      prefix: /WEB-INF/
+      suffix: .jsp
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/METAINF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
