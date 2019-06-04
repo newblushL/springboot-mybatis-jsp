@@ -1,5 +1,8 @@
+$(function(){
+    layui.use(['layer', 'form'], function(){
+        var layer = layui.layer
+            ,form = layui.form;
 
-
-function login() {
-    alert("aa");
-}
+        layer.msg('Hello World');
+    });
+})

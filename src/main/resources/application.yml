@@ -2,7 +2,9 @@ server:
   port: 8082
   servlet:
     context-path: /sb
-
+    jsp:
+      init-parameters:
+        development: true
 #自定义配置
 ip: 125.220.98.27
 port: 9999
