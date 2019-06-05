@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("/userInfo")
+@RequestMapping("/user")
 public class UserInfoController {
 
     private static Logger log = LoggerFactory.getLogger(UserInfoController.class);
@@ -27,9 +27,19 @@ public class UserInfoController {
         return this.userInfoService.findUserInfoById(id);
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("/tologin")
     public String tologin(){
-        log.info("登录页面");
         return "page/login";
+    }
+    @RequestMapping("/index")
+    public String index(){
+        return "page/index";
+    }
+
+    @RequestMapping("/login")
+    @ResponseBody
+    public String login(String username,String password,String code){
+        System.out.println(username+password+code);
+        return null;
     }
 }
