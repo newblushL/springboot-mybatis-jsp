@@ -6,4 +6,6 @@ import org.springframework.stereotype.Service;
 public interface UserInfoService {
 
     UserInfo findUserInfoById(int id);
+
+    UserInfo findUserByName(String username);
 }

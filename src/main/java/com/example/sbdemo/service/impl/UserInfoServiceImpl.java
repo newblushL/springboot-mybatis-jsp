@@ -16,4 +16,9 @@ public class UserInfoServiceImpl implements UserInfoService {
     public UserInfo findUserInfoById(int id) {
         return userInfoDao.selectByPrimaryKey(id);
     }
+
+    @Override
+    public UserInfo findUserByName(String username) {
+        return userInfoDao.selectUserByName(username);
+    }
 }

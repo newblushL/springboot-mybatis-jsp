@@ -34,7 +34,7 @@
             <div class='icon'>
                 <img alt="" src='${pageContext.request.contextPath}/static/img/user_icon_copy.png'>
             </div>
-            <input name="login" placeholder='用户名' maxlength="16" type='text' autocomplete="off" value="kbcxy"/>
+            <input name="login" placeholder='用户名' maxlength="16" type='text' autocomplete="off" value="admin"/>
             <div class='validation'>
                 <img alt="" src='${pageContext.request.contextPath}/static/img/tick.png'>
             </div>

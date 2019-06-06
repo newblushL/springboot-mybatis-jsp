@@ -30,11 +30,12 @@ $('input[name="login"],input[name="pwd"]').keyup(function () {
 });
 var open = 0;
 layui.use('layer', function () {
+    /*
     var msgalert = '默认账号:' + truelogin + '<br/> 默认密码:' + truepwd;
     var index = layer.alert(msgalert, { icon: 6, time: 4000, offset: 't', closeBtn: 0, title: '友情提示', btn: [], anim: 2, shade: 0 });
     layer.style(index, {
         color: '#777'
-    });
+    });*/
     //非空验证
     $('input[type="button"]').click(function () {
         var login = $('input[name="login"]').val();
@@ -46,6 +47,8 @@ layui.use('layer', function () {
             ErroAlert('请输入密码');
         } else if (code == '' || code.length != 4) {
             ErroAlert('输入验证码');
+        } else if(code.toUpperCase() != CodeVal.toUpperCase()){
+            ErroAlert('验证码不正确');
         } else {
             //认证中..
             fullscreen();
@@ -66,21 +69,42 @@ layui.use('layer', function () {
             }, 500);
 
             //登陆
-            var JsonData = { username: login, password: pwd, code: code };
-            //此处做为ajax内部判断
-            var url = "/user/login";
-            $.ajax({
-                type: "POST",
-                url: ctx+"/user/login",
-                data: JsonData,
-                success: function (result) {
-                    if (result.code == 1) {//登录成功
-                        parent.location.href = ctx+'/user/index';
-                    } else{
-                        layer.msg(result.msg, {icon: 5});
-                    }
-                }
-            });
+            var url = ctx+"/user/login";
+            var JsonData = { username: login, password: pwd };
+            AjaxPost(url, JsonData,
+                function () {
+                    //ajax加载中
+                },
+                function (data) {
+                    //ajax返回
+                    //认证完成
+                    setTimeout(function () {
+                        $('.authent').show().animate({ right: 90 }, {
+                            easing: 'easeOutQuint',
+                            duration: 600,
+                            queue: false
+                        });
+                        $('.authent').animate({ opacity: 0 }, {
+                            duration: 200,
+                            queue: false
+                        }).addClass('visible');
+                        $('.login').removeClass('testtwo'); //平移特效
+                    }, 2000);
+                    setTimeout(function () {
+                        $('.authent').hide();
+                        $('.login').removeClass('test');
+                        if (data.code == 1) {
+                            //登录成功
+                            $('.login div').fadeOut(100);
+                            $('.success').fadeIn(1000);
+                            //$('.success').html(data.Text);
+                            //跳转操作
+                            window.location.href = ctx+"/user/index";
+                        } else {
+                            layer.msg(data.msg);
+                        }
+                    }, 2400);
+                })
         }
     })
 })
@@ -95,18 +119,4 @@ var fullscreen = function () {
     } else {
         //浏览器不支持全屏API或已被禁用
     }
-}
-if(ajaxmockjax == 1){
-    $.mockjax({
-        url: '/user/login',
-        status: 200,
-        responseTime: 50,
-        responseText: {"Status":"ok","Text":"登陆成功<br /><br />欢迎回来"}
-    });
-    $.mockjax({
-        url: 'Ajax/LoginFalse',
-        status: 200,
-        responseTime: 50,
-        responseText: {"Status":"Erro","Erro":"账号名或密码或验证码有误"}
-    });
 }
