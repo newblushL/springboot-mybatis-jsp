@@ -35,11 +35,11 @@ public class UserInfoController {
 
     @RequestMapping("/tologin")
     public String tologin(){
-        return "page/login";
+        return "login";
     }
     @RequestMapping("/index")
     public String index(){
-        return "page/index";
+        return "index";
     }
 
     @RequestMapping("/login")

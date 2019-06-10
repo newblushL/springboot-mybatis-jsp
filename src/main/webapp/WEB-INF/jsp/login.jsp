@@ -9,20 +9,20 @@
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <title>登录界面</title>
-    <link href="${pageContext.request.contextPath}/static/css/default.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/default.css" rel="stylesheet" type="text/css" />
     <!--必要样式-->
-    <link href="${pageContext.request.contextPath}/static/css/styles.css" rel="stylesheet" type="text/css" />
-    <link href="${pageContext.request.contextPath}/static/css/demo.css" rel="stylesheet" type="text/css" />
-    <link href="${pageContext.request.contextPath}/static/css/loaders.css" rel="stylesheet" type="text/css" />
-    <link href="${pageContext.request.contextPath}/static/layui/css/layui.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/stopExecutionOnTimeout.js?t=1"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/layui/layui.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/Particleground.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/Treatment.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.mockjax.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/user/login.js"></script>
+    <link href="/static/css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/demo.css" rel="stylesheet" type="text/css" />
+    <link href="/static/css/loaders.css" rel="stylesheet" type="text/css" />
+    <link href="/static/layui/css/layui.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/static/js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/js/stopExecutionOnTimeout.js?t=1"></script>
+    <script type="text/javascript" src="/static/layui/layui.js"></script>
+    <script type="text/javascript" src="/static/js/Particleground.js"></script>
+    <script type="text/javascript" src="/static/js/Treatment.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.mockjax.js"></script>
+    <script type="text/javascript" src="/static/js/user/login.js"></script>
 </head>
 <body>
 <div class='login'>
@@ -32,25 +32,25 @@
     <div class='login_fields'>
         <div class='login_fields__user'>
             <div class='icon'>
-                <img alt="" src='${pageContext.request.contextPath}/static/img/user_icon_copy.png'>
+                <img alt="" src='/static/img/user_icon_copy.png'>
             </div>
             <input name="login" placeholder='用户名' maxlength="16" type='text' autocomplete="off" value="admin"/>
             <div class='validation'>
-                <img alt="" src='${pageContext.request.contextPath}/static/img/tick.png'>
+                <img alt="" src='/static/img/tick.png'>
             </div>
         </div>
         <div class='login_fields__password'>
             <div class='icon'>
-                <img alt="" src='${pageContext.request.contextPath}/static/img/lock_icon_copy.png'>
+                <img alt="" src='/static/img/lock_icon_copy.png'>
             </div>
             <input name="pwd" placeholder='密码' maxlength="16" type='text' autocomplete="off">
             <div class='validation'>
-                <img alt="" src='${pageContext.request.contextPath}/static/img/tick.png'>
+                <img alt="" src='/static/img/tick.png'>
             </div>
         </div>
         <div class='login_fields__password'>
             <div class='icon'>
-                <img alt="" src='${pageContext.request.contextPath}/static/img/key.png'>
+                <img alt="" src='/static/img/key.png'>
             </div>
             <input name="code" placeholder='验证码' maxlength="4" type='text' name="ValidateNum" autocomplete="off">
             <div class='validation' style="opacity: 1; right: -5px;top: -3px;">
@@ -81,7 +81,7 @@
 
 <script type="text/javascript">
     var canGetCookie = 0;//是否支持存储Cookie 0 不支持 1 支持
-    var ctx = "${pageContext.request.contextPath}";
+    var ctx = "";
     Code();
     function Code() {
         if(canGetCookie == 1){

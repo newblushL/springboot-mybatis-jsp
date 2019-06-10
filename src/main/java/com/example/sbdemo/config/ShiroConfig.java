@@ -125,7 +125,7 @@ public class ShiroConfig {
         // 登录成功后要跳转的链接
         filterFactoryBean.setSuccessUrl("/user/index");
         //未授权界面;
-        filterFactoryBean.setUnauthorizedUrl("/user/tologin");
+        filterFactoryBean.setUnauthorizedUrl("/403");
         filterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return filterFactoryBean;
     }

@@ -10,10 +10,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>首页</title>
-    <script src="${pageContext.request.contextPath}/static/js/jquery-2.1.1.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/layui/css/layui.css">
-    <script src="${pageContext.request.contextPath}/static/layui/layui.js" type="text/javascript"></script>
-    <script src="${pageContext.request.contextPath}/static/js/user/index.js" type="text/javascript"></script>
+    <script src="/static/js/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <script src="/static/layui/layui.js" type="text/javascript"></script>
+    <script src="/static/js/user/index.js" type="text/javascript"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
